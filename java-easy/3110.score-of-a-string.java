@@ -4,14 +4,17 @@
  * [3110] Score of a String
  */
 
+
 // @lc code=start
 class Solution {
   public int scoreOfString(String s) {
-    int[] asciiArray = s.chars().toArray();
 
     int sum = 0;
-    for (int i = 0; i < asciiArray.length - 1; i++) {
-      sum += Math.abs(asciiArray[i] - asciiArray[i + 1]);
+    int prev = s.charAt(0);
+    int len = s.length();
+    for (int i = 1; i < len; i++) {
+      sum += Math.abs(prev - s.charAt(i));
+      prev = s.charAt(i);
     }
 
     return sum;
