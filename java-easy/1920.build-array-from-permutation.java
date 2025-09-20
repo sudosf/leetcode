@@ -9,10 +9,12 @@
 class Solution {
   public int[] buildArray(int[] nums) {
 
+    // General encoding formula:
+    // arr[target_index] = original_value + (encoded_value * n)
     int len = nums.length;
     for (int i = 0; i < len; i++) {
       int original = nums[i] % len;
-      nums[i] = original + ((nums[nums[i]] % len) * len);
+      nums[i] = original + ((nums[original] % len) * len);
     }
 
     for (int i = 0; i < len; i++) {
