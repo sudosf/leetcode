@@ -7,15 +7,20 @@
 // @lc code=start
 
 class Solution {
-    public int[] buildArray(int[] nums) {
+  public int[] buildArray(int[] nums) {
 
-        int[] ans = new int[nums.length];
-        for (int i = 0; i < nums.length; i++) {
-            ans[i] = nums[nums[i]];
-        }
-
-        return ans;
+    int len = nums.length;
+    for (int i = 0; i < len; i++) {
+      int original = nums[i] % len;
+      nums[i] = original + ((nums[nums[i]] % len) * len);
     }
+
+    for (int i = 0; i < len; i++) {
+      nums[i] = nums[i] / len;
+    }
+
+    return nums;
+  }
 }
 // @lc code=end
 

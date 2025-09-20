@@ -1,36 +1,28 @@
 package local.test;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Test {
 
   void main() {
-    String str = "hello";
+    int[] arr = new int[] {5,0,1,2,3,4};
 
-    Map<Set<Integer>, Integer> cache = new HashMap<>();
-
-    // create array of ASCII from string
-    int[] asciiArray = str.chars().toArray();
-
-    int sum = 0;
-    for (int i = 0; i < asciiArray.length - 1; i++) {
-      Set<Integer> pair = Stream.of(asciiArray[i], asciiArray[i + 1]).collect(Collectors.toSet());
-
-      if (cache.containsKey(pair)) {
-        sum += cache.get(pair);
-        continue;
-      }
-
-      int result = Math.abs(asciiArray[i] - asciiArray[i + 1]);
-      cache.put(pair, result);
-      sum += result;
+    int len = arr.length;
+    for (int i = 0; i < len; i++) {
+      int original = arr[i] % len;
+      arr[i] = original + ((arr[arr[i]] % len) * len);
     }
 
-    IO.println("sum: " + sum);
+    IO.println("pure encoded []: " + Arrays.toString(arr));
+
+    IO.println();
+    for (int num : arr) {
+      IO.println("old: " + num % len);
+    }
+
+    IO.println();
+    for (int num : arr) {
+      IO.println("new: " + num / len);
+    }
   }
 }
