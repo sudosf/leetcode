@@ -5,24 +5,28 @@ import java.util.Arrays;
 public class Test {
 
   void main() {
-    int[] arr = new int[] {5,0,1,2,3,4};
+    int[] arr = new int[] {-1, 0, 3, 5, 9, 12};
 
-    int len = arr.length;
-    for (int i = 0; i < len; i++) {
-      int original = arr[i] % len;
-      arr[i] = original + ((arr[arr[i]] % len) * len);
+    IO.println("index: " + search(arr, 9));
+  }
+
+  public int search(int[] nums, int target) {
+
+    int left = 0;
+    int right = nums.length - 1;
+
+    while (left <= right) {
+      int mid = (left + right) / 2;
+
+      if (nums[mid] == target) {
+        return mid;
+      } else if (nums[mid] < target) {
+        left = mid + 1;
+      } else {
+        right = mid - 1;
+      }
     }
 
-    IO.println("pure encoded []: " + Arrays.toString(arr));
-
-    IO.println();
-    for (int num : arr) {
-      IO.println("old: " + num % len);
-    }
-
-    IO.println();
-    for (int num : arr) {
-      IO.println("new: " + num / len);
-    }
+    return -1;
   }
 }
