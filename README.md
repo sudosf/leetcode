@@ -2,31 +2,17 @@
 
 Welcome to my **LeetCode solutions repository**! This repo contains my personal solutions to a variety of LeetCode problems implemented mostly in **Java** organized by **difficulty** and **programming language** used.
 
-## 🗂️ Repository Structure
+## Time Complexity Comparison
 
-```markdown
-leetcode/
-├── java-easy/       # Easy-level problems
-├── java-medium/     # Medium-level problems
-├── java-hard/       # Hard-level problems
-└── .vscode/         # VS Code configuration files
-```
+| Input Size (n) | O(log n) | O(n) | O(n log n) | O(n²) | O(n³) |
+|---------------:|:--------:|:----:|:----------:|:-----:|:-----:|
+| 10 | ~3 | 10 | ~33 | 100 | 1,000 |
+| 100 | ~7 | 100 | ~664 | 10,000 | 1,000,000 |
+| 1,000 | ~10 | 1,000 | ~9,966 | 1M | 1B |
+| 1,000,000 | ~20 | 1M | ~19.9M | 1T | 1Q |
+| 1,000,000,000 | ~30 | 1B | ~29.9B | 1Q | 1S |
 
-## 🎯 Purpose
-
-* Practice **data structures and algorithms** in Java.
-* Strengthen problem-solving skills for **technical interviews**.
-* Keep a **reference for future coding challenges**.
-
-## 🔍 Patterns Practiced
-
-Some common algorithmic patterns covered in this repo:
-
-* **Array / String**: Two pointers, sliding window, prefix sums
-* **Hash Map / Set**: Counting, frequency maps, deduplication
-* **Stack / Queue / Heap**: Valid parentheses, sliding window max, priority queues
-* **Binary Search**: Searching sorted arrays, rotated arrays
-* **Dynamic Programming**: Memoization and iterative DP (medium-hard problems)
+**Legend:** M = Million, B = Billion, T = Trillion, Q = Quintillion, S = Sextillion
 
 ## 🚀 How to Use
 
