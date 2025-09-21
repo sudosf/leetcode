@@ -31,6 +31,7 @@ Feel free to fork this repository and add your own solutions!
 
 ## References
 
+* [My Profile](https://leetcode.com/u/sudosf)
 * [LeetCode Badges](https://github.com/ChinemeremChigbo/LeetCode-Badges)
 
 ## 🤖 AI Disclaimer
