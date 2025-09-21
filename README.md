@@ -29,6 +29,10 @@ Feel free to fork this repository and add your own solutions!
 * Use clear **class and method names**.
 * Add comments explaining **key ideas and patterns**.
 
+## References
+
+* [LeetCode Badges](https://github.com/ChinemeremChigbo/LeetCode-Badges)
+
 ## 🤖 AI Disclaimer
 
 This README was generated with the assistance of AI and reviewed by a human for clarity and accuracy. ❤️
