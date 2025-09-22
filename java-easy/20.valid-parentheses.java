@@ -12,11 +12,9 @@ import java.util.Deque;
 class Solution {
     public boolean isValid(String s) {
 
-        Deque<Character> stack = new ArrayDeque<>();
+        Deque<Character> stack = new ArrayDeque<>(s.length());
 
-        for (int i = 0; i < s.length(); i++) {
-
-            char bracket = s.charAt(i);
+        for(char bracket : s.toCharArray()) {
 
             switch (bracket) {
                 case '(', '{', '[' -> stack.push(bracket);
