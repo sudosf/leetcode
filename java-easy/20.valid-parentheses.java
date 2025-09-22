@@ -9,41 +9,34 @@
 import java.util.Stack;
 
 class Solution {
-  public boolean isValid(String s) {
+    public boolean isValid(String s) {
 
-    Stack<Character> stack = new Stack<>();
+        Stack<Character> stack = new Stack<>();
 
-    for (int i = 0; i < s.length(); i++) {
+        for (int i = 0; i < s.length(); i++) {
 
-      char bracket = s.charAt(i);
+            char bracket = s.charAt(i);
 
-      switch (bracket) {
-        case '(' -> stack.push(bracket);
-        case ')' -> {
-          if (stack.isEmpty()) return false;
-          char top = stack.pop();
-          if (top != '(')
-            return false;
+            switch (bracket) {
+                case '(', '{', '[' -> stack.push(bracket);
+                default -> {
+                    if (stack.isEmpty())
+                        return false;
+
+                    char top = stack.pop();
+                    if (!matches(top, bracket))
+                        return false;
+                }
+            }
         }
-        case '{' -> stack.push(bracket);
-        case '}' -> {
-          if (stack.isEmpty()) return false;
-          char top = stack.pop();
-          if (top != '{')
-            return false;
-        }
-        case '[' -> stack.push(bracket);
-        case ']' -> {
-          if (stack.isEmpty()) return false;
-          char top = stack.pop();
-          if (top != '[')
-            return false;
-        }
-      }
+
+        return stack.empty();
     }
 
-    return stack.empty();
-  }
+    public boolean matches(char open, char close) {
+        return (open == '(' && close == ')') || (open == '{' && close == '}')
+                || (open == '[' && close == ']');
+    }
 }
 // @lc code=end
 
