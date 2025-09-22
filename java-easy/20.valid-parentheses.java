@@ -6,12 +6,13 @@
 
 // @lc code=start
 
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 class Solution {
     public boolean isValid(String s) {
 
-        Stack<Character> stack = new Stack<>();
+        Deque<Character> stack = new ArrayDeque<>();
 
         for (int i = 0; i < s.length(); i++) {
 
@@ -30,7 +31,7 @@ class Solution {
             }
         }
 
-        return stack.empty();
+        return stack.isEmpty();
     }
 
     public boolean matches(char open, char close) {
