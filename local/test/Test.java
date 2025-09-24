@@ -12,8 +12,45 @@ public class Test {
   void main() {
 
     int[] nums = new int[] {-1, 0, 1, 2, -1, -4};
+    int[] moreNuma = new int[] {0, 1, 1};
 
-    IO.println("triplets: " + threeSum(nums));
+    IO.println("triplets: " + twoPointerApproach(nums));
+    IO.println("triplets: " + twoPointerApproach(moreNuma));
+  }
+
+  List<List<Integer>> twoPointerApproach(int[] nums) {
+
+    List<List<Integer>> triplets = new ArrayList<>();
+
+    Arrays.sort(nums);
+    for (int i = 0; i < nums.length - 2; i++) {
+      if (i > 0 && nums[i] == nums[i - 1])
+        continue;
+
+      int left = i + 1, right = nums.length - 1;
+
+      while (left < right) {
+        int sum = nums[i] + nums[left] + nums[right];
+
+        if (sum == 0) {
+          triplets.add(Arrays.asList(nums[i], nums[left], nums[right]));
+
+          int currentLeft = nums[left];
+          while (left < right && currentLeft == nums[left])
+            left++;
+
+          int currentRight = nums[right];
+          while (left < right && currentRight == nums[right])
+            right--;
+        } else if (sum < 0) {
+          left++;
+        } else {
+          right--;
+        }
+      }
+    }
+
+    return triplets;
   }
 
   List<List<Integer>> threeSum(int[] nums) {
